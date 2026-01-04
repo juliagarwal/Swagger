@@ -1,8 +1,8 @@
 {
-    "url": "https://raw.githubusercontent.com/juliagarwal/Swagger/main/login-demo.yaml",
+    "url": "https://raw.githubusercontent.com/juliagarwal/Swagger/refs/heads/main/login-demo.yaml",
     "urls": [
         {
-            "url": "https://raw.githubusercontent.com/juliagarwal/Swagger/main/login-demo.yaml",
+            "url": "https://raw.githubusercontent.com/juliagarwal/Swagger/refs/heads/main/login-demo.yaml",
             "name": "Admin"
         }
     ]
