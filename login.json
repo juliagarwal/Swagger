@@ -1,0 +1,9 @@
+{
+    "url": "https://raw.githubusercontent.com/juliagarwal/Swagger/main/login-demo.yaml",
+    "urls": [
+        {
+            "url": "https://raw.githubusercontent.com/juliagarwal/Swagger/main/login-demo.yaml",
+            "name": "Admin"
+        }
+    ]
+}
