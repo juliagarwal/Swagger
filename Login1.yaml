@@ -6,7 +6,7 @@ info:
 
 <!-- Demo Warning -->
 <div style="width: 100%; max-width: 400px; margin: 20px auto; padding: 15px; background: #fff3cd; border-radius: 8px; border: 1px solid #ffeeba; text-align: center;">
-  <strong>⚠ Training / Demo Only</strong><br>
+  <strong>Training / Demo Only</strong><br>
   No real credentials are collected.
 </div>
 
@@ -25,19 +25,19 @@ info:
 
       <div style="margin-bottom: 15px;">
         <label style="font-size: 14px;">Username</label>
-        <input type="text" name="username" value="demo_user" readonly
+        <input type="text" name="username" value="demo_user" 
                style="width: 100%; padding: 10px; border: 1px solid #ccc;">
       </div>
 
       <div style="margin-bottom: 15px;">
         <label style="font-size: 14px;">Password</label>
-        <input type="password" name="password" value="demo_pass" readonly
+        <input type="password" name="password" value="demo_pass" 
                style="width: 100%; padding: 10px; border: 1px solid #ccc;">
       </div>
 
       <button type="submit"
               style="width: 100%; padding: 12px; background-color: #5cb85c; color: white; border: none;">
-        Login (Demo)
+        Login 
       </button>
     </form>
   </div>
@@ -52,4 +52,4 @@ paths:
     post:
       responses:
         '200':
-          description: Demo login received
+          description: login received
