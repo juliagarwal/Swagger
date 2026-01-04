@@ -1,0 +1,27 @@
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: Demo Login Page
+  description: |
+    <h2> Demo Login (Training Only)</h2>
+    <p>This page is for security training. No real credentials are collected.</p>
+
+    <form method="POST" action="http://localhost:3000/demo-login">
+      <label>Username</label><br>
+      <input type="text" name="username" value="demo_user" readonly /><br><br>
+
+      <label>Password</label><br>
+      <input type="password" name="password" value="demo_pass" readonly /><br><br>
+
+      <input type="submit" value="Login (Demo)" />
+    </form>
+
+paths:
+  /demo-login:
+    post:
+      summary: Demo endpoint
+      consumes:
+        - application/x-www-form-urlencoded
+      responses:
+        "200":
+          description: Demo received
