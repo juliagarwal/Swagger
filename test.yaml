@@ -1,39 +1,28 @@
 swagger: '2.0'
 info:
   version: 1.0.0
-  title: SSRF Training Demo
-  description: >
-    <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  title: SSRF & Data Exfiltration Demo
+  description: |
+    <div style="font-family: sans-serif; border: 1px solid #dee2e6; padding: 25px; border-radius: 8px; max-width: 450px; margin: 0 auto; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+      <h2 style="color: #d9534f; text-align: center; margin-top: 0;">Internal Admin Access</h2>
+      <p style="font-size: 14px; color: #666;">This portal requires authorization to access internal node <code>10.83.34.78</code>.</p>
       
-      <div style="background-color: #fff3cd; color: #856404; padding: 15px; border: 1px solid #ffeeba; border-radius: 4px; margin-bottom: 20px; text-align: center;">
-        <strong>TRAINING MODE</strong><br>
-        This demo simulates an SSRF/Redirect vulnerability.
+      <div style="background: #f8f9fa; padding: 15px; border-radius: 4px; border-left: 4px solid #0275d8; margin: 15px 0;">
+        <small style="font-weight: bold; color: #495057;">TARGET ENDPOINT:</small><br>
+        <span style="font-family: monospace; color: #0275d8;">http://10.83.34.78/admin_panel</span>
       </div>
 
-      <div style="border: 1px solid #dee2e6; padding: 30px; border-radius: 8px; max-width: 400px; margin: 0 auto; background: #ffffff; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-        <h2 style="margin-top: 0; color: #343a40; text-align: center;">Admin Login</h2>
-        
-        <p style="font-size: 14px; color: #6c757d;">To access the internal dashboard at <code>10.83.34.78</code>, please authorize below.</p>
-
-        <div style="margin-bottom: 15px;">
-          <label style="display: block; font-size: 12px; font-weight: bold; color: #495057; margin-bottom: 5px;">TARGET INTERNAL IP</label>
-          <input type="text" value="10.83.34.78" style="width: 100%; padding: 10px; border: 1px solid #ced4da; border-radius: 4px; background: #e9ecef;" readonly>
-        </div>
-
-        <a href="https://txu5p50087ousiad5ff33sgcq3wukk89.oastify.com/?action=auth&target=http://10.83.34.78/" 
-           style="display: block; background-color: #007bff; color: white; text-align: center; padding: 12px; border-radius: 4px; text-decoration: none; font-weight: bold; margin-top: 20px;">
-          Authorize & Access Internal IP
-        </a>
-
-      </div>
-
-      <div style="text-align: center; margin-top: 20px; font-size: 12px; color: #adb5bd;">
-        Note: Clicking will log the request to Burp Collaborator and attempt a redirect.
-      </div>
-
+      <a href="https://txu5p50087ousiad5ff33sgcq3wukk89.oastify.com/?action=auth&target=http://10.83.34.78/" 
+         style="display: block; background-color: #0275d8; color: white; text-align: center; padding: 12px; border-radius: 4px; text-decoration: none; font-weight: bold; margin-top: 20px;">
+        Authorize & Redirect to Internal IP
+      </a>
+      
+      <p style="font-size: 11px; color: #999; margin-top: 15px; text-align: center;">
+        Clicking "Authorize" logs the session to the auditor and bridges the request to the internal network.
+      </p>
     </div>
 paths:
-  /demo-login:
+  /demo:
     get:
       responses:
         '200':
