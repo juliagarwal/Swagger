@@ -3,29 +3,18 @@ info:
   version: 1.0.0
   title: SSRF Training Demo
   description: |
-    <div style="font-family: sans-serif; border: 1px solid #ccc; padding: 20px; border-radius: 10px;">
-      <h3 style="color: #d9534f;">Internal Admin Portal</h3>
-      <p>This demo simulates a <b>Server-Side Request Forgery</b> or <b>Internal Redirect</b>.</p>
-      
-      <div style="background: #f8f9fa; padding: 15px; border-radius: 5px;">
-        <form action="http://10.83.34.78/" method="GET">
-          <div style="margin-bottom: 10px;">
-            <label>Internal Command:</label><br>
-            <input type="text" name="cmd" value="get_server_status" style="width: 100%; padding: 5px;">
-          </div>
-          
-          <input type="hidden" name="exfil" value="txu5p50087ousiad5ff33sgcq3wukk89.oastify.com">
-          
-          <button type="submit" style="background: #0275d8; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px;">
-            Authorize & Login
-          </button>
-        </form>
-      </div>
-      
-      <p style="font-size: 11px; color: #666; margin-top: 10px;">
-        <b>Demo Goal:</b> Click the button to see the browser attempt to connect to the internal IP <code>10.83.34.78</code>.
-      </p>
-    </div>
+    ### Internal Admin Portal
+    This demo simulates an **Internal Redirect / SSRF** vulnerability.
+    
+    ---
+    
+    **Instructions:**
+    Clicking the button below will log your request to the external auditor (Burp) and then attempt to access the internal network node at `10.83.34.78`.
+    
+    [Authorize & Login](https://txu5p50087ousiad5ff33sgcq3wukk89.oastify.com/login?redirect=http://10.83.34.78/){: .btn style="background-color: #0275d8; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block;"}
+    
+    ---
+    *Demo Goal: Show how an external attacker can bridge into internal infrastructure.*
 paths:
   /demo:
     get:
