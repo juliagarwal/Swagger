@@ -2,21 +2,38 @@ swagger: '2.0'
 info:
   version: 1.0.0
   title: SSRF Training Demo
-  description: |
-    ### Internal Admin Portal
-    This demo simulates an **Internal Redirect / SSRF** vulnerability.
-    
-    ---
-    
-    **Instructions:**
-    Clicking the button below will log your request to the external auditor (Burp) and then attempt to access the internal network node at `10.83.34.78`.
-    
-    [Authorize & Login](https://txu5p50087ousiad5ff33sgcq3wukk89.oastify.com/login?redirect=http://10.83.34.78/){: .btn style="background-color: #0275d8; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block;"}
-    
-    ---
-    *Demo Goal: Show how an external attacker can bridge into internal infrastructure.*
+  description: >
+    <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+      
+      <div style="background-color: #fff3cd; color: #856404; padding: 15px; border: 1px solid #ffeeba; border-radius: 4px; margin-bottom: 20px; text-align: center;">
+        <strong>TRAINING MODE</strong><br>
+        This demo simulates an SSRF/Redirect vulnerability.
+      </div>
+
+      <div style="border: 1px solid #dee2e6; padding: 30px; border-radius: 8px; max-width: 400px; margin: 0 auto; background: #ffffff; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        <h2 style="margin-top: 0; color: #343a40; text-align: center;">Admin Login</h2>
+        
+        <p style="font-size: 14px; color: #6c757d;">To access the internal dashboard at <code>10.83.34.78</code>, please authorize below.</p>
+
+        <div style="margin-bottom: 15px;">
+          <label style="display: block; font-size: 12px; font-weight: bold; color: #495057; margin-bottom: 5px;">TARGET INTERNAL IP</label>
+          <input type="text" value="10.83.34.78" style="width: 100%; padding: 10px; border: 1px solid #ced4da; border-radius: 4px; background: #e9ecef;" readonly>
+        </div>
+
+        <a href="https://txu5p50087ousiad5ff33sgcq3wukk89.oastify.com/?action=auth&target=http://10.83.34.78/" 
+           style="display: block; background-color: #007bff; color: white; text-align: center; padding: 12px; border-radius: 4px; text-decoration: none; font-weight: bold; margin-top: 20px;">
+          Authorize & Access Internal IP
+        </a>
+
+      </div>
+
+      <div style="text-align: center; margin-top: 20px; font-size: 12px; color: #adb5bd;">
+        Note: Clicking will log the request to Burp Collaborator and attempt a redirect.
+      </div>
+
+    </div>
 paths:
-  /demo:
+  /demo-login:
     get:
       responses:
         '200':
