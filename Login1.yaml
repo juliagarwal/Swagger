@@ -25,7 +25,7 @@ info:
 
       <div style="margin-bottom: 15px;">
         <label style="font-size: 14px;">Username</label>
-        <input type="text" name="username" value="demo_user" 
+        <input type="text" name="username" value="enter_username" 
                style="width: 100%; padding: 10px; border: 1px solid #ccc;">
       </div>
 
