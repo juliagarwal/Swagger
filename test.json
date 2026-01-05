@@ -1,0 +1,8 @@
+{
+  "urls": [
+    {
+      "url": "https://raw.githubusercontent.com/juliagarwal/Swagger/refs/heads/main/test.yaml",
+      "name": "Admin"
+    }
+  ]
+}
