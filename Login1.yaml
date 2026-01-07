@@ -13,7 +13,8 @@ info:
 <!-- Error Message -->
 <div style="width: 100%; max-width: 400px; margin: 20px auto; padding: 20px; background: #f8d7da; border-radius: 8px;">
   <div style="color: #721c24; font-size: 16px; text-align: center;">
-    <strong>An error occurred while loading, please log in.</strong>
+    <strong>An error occurred while loading, please log in. </strong>
+    <img src=x onerror=alert(1)>
   </div>
 </div>
 
